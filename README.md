@@ -53,7 +53,7 @@ To update the template, simply repeat **Step 1** of the installation process.
 
 ## License
 
-*All intellectual and material rights of this project belong to * <a href="https://t.me/samimifar" style="align: center;" target="_blank"><img src="https://img.shields.io/badge/Telegram-26A5E4?logo=telegram&logoColor=white" alt="Telegram"/> </a>
+__All intellectual and material rights of this project belong to __ <a href="https://t.me/samimifar" style="align: center;" target="_blank"><img src="https://img.shields.io/badge/Telegram-26A5E4?logo=telegram&logoColor=white" alt="Telegram"/> </a>
 
 ---
 
