@@ -971,7 +971,11 @@
 
             if (!SupportID) {
                 const supportButton = document.getElementById('supportButton');
+                {% if user.status in ['active', 'on_hold'] %}
                 const hr = supportButton.previousElementSibling;
+                {% else %}
+                const hr = supportButton.nextElementSibling;
+                {% endif %}
                 if (supportButton) supportButton.style.display = 'none';
                 if (hr && hr.tagName === 'HR') hr.style.display = 'none';
             } else {
