@@ -22,6 +22,7 @@ A simple yet effective subscription template (written in plain `HTML` and `CSS`)
 ## Installation
 
 1. Download the template file:
+   <br>
    **English:**
    ```sh
    sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/samimifar/marzban-template/master/src/en/index.html
@@ -32,7 +33,7 @@ A simple yet effective subscription template (written in plain `HTML` and `CSS`)
    sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/samimifar/marzban-template/master/src/fa/index.html
    ```
    
-2. Configure Marzban to use the custom template by running:
+3. Configure Marzban to use the custom template by running:
    ```sh
    echo 'CUSTOM_TEMPLATES_DIRECTORY="/var/lib/marzban/templates/"' | sudo tee -a /opt/marzban/.env
    echo 'SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"' | sudo tee -a /opt/marzban/.env
@@ -42,7 +43,7 @@ A simple yet effective subscription template (written in plain `HTML` and `CSS`)
    CUSTOM_TEMPLATES_DIRECTORY="/var/lib/marzban/templates/"
    SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"
    ```
-3. Restart Marzban:
+4. Restart Marzban:
    ```sh
    marzban restart
    ```
