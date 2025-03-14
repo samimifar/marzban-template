@@ -1,6 +1,6 @@
 # marzban-template
 
-A modern, lightweight, and powerful template for [Marzban](https://github.com/Gozargah/Marzban) written in HTML and CSS.
+A modern, lightweight, and powerful subscription page template for [Marzban](https://github.com/Gozargah/Marzban) written in HTML and CSS.
 
 ## Table of Contents
 
