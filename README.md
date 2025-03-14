@@ -8,14 +8,6 @@ A modern, lightweight, and powerful subscription page template for [Marzban](htt
   </a>
 </p>
 
-## Table of Contents
-
-- [Features](#features)
-- [Installation](#installation)
-- [Update](#update)
-- [License](#license)
-- [Support Me](#support-me)
-
 ## Introduction
 
 A simple yet effective subscription template (written in plain `HTML` and `CSS`) to enhance the user experience of Marzban's subscription page.
@@ -62,7 +54,7 @@ To update the template, simply repeat **Step 1** of the installation process.
 ## License
 
 **All intellectual and material rights of this project belong to:**
-<a href="https://t.me/samimifar" target="_blank"> <img src="https://img.shields.io/badge/Telegram-26A5E4?logo=telegram&logoColor=white" alt="Samimifar"/> </a>
+<a href="https://t.me/samimifar" style="align: center;" target="_blank"> <img src="https://img.shields.io/badge/Telegram-26A5E4?logo=telegram&logoColor=white" alt="Samimifar"/> </a>
 
 ---
 
