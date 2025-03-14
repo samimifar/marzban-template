@@ -596,12 +596,17 @@
                             <div class="stat-value data-usage-text">پایان ترافیک!</div>
                             <div class="stat-value-lite data-usage-text">مصرف: {{ user.data_limit | bytesformat }}</div>
                             {% else %}
+                            {%if user.data_limit %}
                             <div class="stat-value data-usage-text">{{ user.used_traffic | bytesformat }}</div>
                             {% set remaining_traffic = user.data_limit - user.used_traffic %}
                             {% if remaining_traffic > 0 %}
                             <div class="stat-value-lite data-usage-text">{{ remaining_traffic | bytesformat }} مانده</div>
                             {% endif %}
                             <div class="stat-value-lite data-usage-text">حجم کل: {{ user.data_limit | bytesformat }}</div>
+                            {% else %}
+                            <div class="stat-value data-usage-text">{{ user.used_traffic | bytesformat }}</div>
+                            <div class="stat-value-lite data-usage-text">حجم کل: نامحدود</div>
+                            {% endif %}
                             {% endif %}
                         </div>
                         {% if user.data_limit %}
