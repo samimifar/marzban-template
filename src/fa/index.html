@@ -39,6 +39,7 @@
             --gradient: linear-gradient(135deg, #6366f1, #8b5cf6);
             --gradient2: linear-gradient(135deg, #2d7038, #4fac57);
             --gradient3: linear-gradient(135deg, #52cace, #5e61ff);
+            --gradient4: linear-gradient(135deg, #ff7171, #ff4848);
             --glass-bg: rgba(255, 255, 255, 0.1);
             --glass-border: rgba(255, 255, 255, 0.2);
         }
@@ -582,6 +583,12 @@
                     </div>
                 </div>
             </div>
+            {% if user.status in ['expired', 'limited', 'disabled'] %}
+            <button class="link-btn" id="supportButton" style="background: var(--gradient4);">
+                <i class="fas fa-external-link-alt"></i> ارتباط با پشتیبانی
+            </button>
+            <hr style="border: none; border-top: 1px solid var(--glass-border); margin: 2rem 0;">
+            {% endif %}
             <div class="stats-grid">
                 <div class="stat-card data-usage-card" style="display: flex; flex-direction: column; gap: 1.5rem;">
                     <div style="display: flex; align-items: center; gap: 0.75rem; width: 100%; justify-content: flex-start;">
@@ -668,10 +675,12 @@
                     <i class="fas fa-qrcode"></i> بارکد
                 </button>
             </div>
+            {% if user.status in ['active', 'on_hold'] %}
             <hr style="border: none; border-top: 1px solid var(--glass-border); margin: 1.5rem 0;">
             <button class="link-btn" id="supportButton" style="background: var(--gradient3);">
                 <i class="fas fa-external-link-alt"></i> ارتباط با پشتیبانی
             </button>
+            {% endif %}
         </div>
         <div class="glass-card" id="ApplicationsCard">
             <div class="icon-title" style="cursor: pointer;" onclick="toggleApplications()">
