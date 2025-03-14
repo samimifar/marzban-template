@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<script>
+    const SupportID = "https://t.me/samimifar";
+</script>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{{ user.username }}</title>
+    <link rel="icon" type="image/svg+xml" href="https://cdn.jsdelivr.net/gh/samimifar/worldwithoutlimit@main/user-solid.svg">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/misc/Farsi-Digits/Vazirmatn-FD-font-face.css" rel="stylesheet" type="text/css" />
+    <link href="https://cdn.jsdelivr.net/gh/rastikerdar/vazirmatn@v33.003/Vazirmatn-font-face.css" rel="stylesheet" type="text/css" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"></script>
+    <style>
+
+        * {
+            user-select: none;
+            direction: rtl;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Vazirmatn FD', sans-serif;
+            -webkit-tap-highlight-color: transparent;
+        }
+
+        ::-webkit-scrollbar {
+            display: none;
+        }
+
+        .latin-text {
+            font-family: 'Vazirmatn', sans-serif !important;
+        }
+
+        :root {
+            --primary: #6366f1;
+            --gradient: linear-gradient(135deg, #6366f1, #8b5cf6);
+            --gradient2: linear-gradient(135deg, #2d7038, #4fac57);
+            --gradient3: linear-gradient(135deg, #52cace, #5e61ff);
+            --glass-bg: rgba(255, 255, 255, 0.1);
+            --glass-border: rgba(255, 255, 255, 0.2);
+        }
+
+        body {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+            min-height: 100vh;
+            background: linear-gradient(45deg, #0f172a, #1e293b);
+            color: #fff;
+            overflow-x: hidden;
+        }
+
+        .background {
+            position: fixed;
+            width: 100vw;
+            height: 100vh;
+            z-index: -1;
+        }
+
+        .circle {
+            position: absolute;
+            border-radius: 50%;
+            filter: blur(70px);
+        }
+
+        .circle-1 {
+            width: 500px;
+            height: 500px;
+            background: #6366f140;
+            top: -100px;
+            left: -100px;
+        }
+
+        .circle-2 {
+            width: 400px;
+            height: 400px;
+            background: #8b5cf640;
+            bottom: -50px;
+            right: -50px;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 2rem auto;
+            padding: 2rem;
+        }
+
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border);
+            border-radius: 24px;
+            padding: 1.5rem;
+            margin-bottom: 2rem;
+            animation: fadeUp 0.5s ease-out;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+        }
+
+        .user-info {
+            justify-content: space-between;
+            display: flex;
+            width: 100%;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .status {
+            padding: 0.5rem 1rem;
+            border-radius: 24px;
+            font-size: 1rem;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 1.5rem;
+            margin-top: 2rem;
+        }
+
+        .stat-card {
+            background: rgba(255, 255, 255, 0.07);
+            border-radius: 24px;
+            padding: 1.5rem;
+            transition: transform 0.3s ease;
+            border: 1px solid var(--glass-border);
+        }
+
+        .icon-title {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+        }
+
+        .stat-icon {
+            width: 40px;
+            height: 40px;
+            background: var(--gradient);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 0;
+        }
+
+        .stat-label {
+            font-size: 0.875rem;
+            color: #94a3b8;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-value {
+            font-size: 1.25rem;
+            font-weight: 600;
+        }
+
+        .stat-value-lite {
+            font-size: 0.9rem;
+            color: rgb(255, 255, 255, 0.5);
+            font-weight: 300;
+        }
+
+        .data-usage-card {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .data-usage-info {
+            flex: 1;
+        }
+
+        .circle-progress-container {
+            position: relative;
+            width: 110px;
+            height: 110px;
+            margin: 1.5rem auto 0;
+        }
+
+        .circle-progress {
+            transform: rotate(-90deg);
+        }
+
+        .circle-progress circle {
+            fill: none;
+            stroke-width: 3.25;
+            stroke-linecap: round;
+        }
+
+        .circle-progress .background {
+            stroke: rgba(255, 255, 255, 0.1);
+        }
+
+        .circle-progress .progress {
+            stroke: url(#gradient);
+            transition: stroke-dashoffset 1s ease-in-out;
+        }
+
+        .percentage {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 1.25rem;
+            font-weight: 600;
+            color: #fff;
+        }
+
+        .proxy-list {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--glass-border);
+            border-radius: 16px;
+            padding: 0.75rem;
+            margin: 1rem 0;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .proxy-item {
+            direction: ltr;
+            display: flex;
+            align-items: center;
+            padding: 0.875rem;
+            border-radius: 8px;
+            transition: background-color 0.2s ease;
+        }
+
+        .proxy-item:hover {
+            background: rgba(255, 255, 255, 0.05);
+            transform: translateY(-2px);
+        }
+
+        .proxy-item span {
+            font-size: 0.875rem;
+            font-family: 'Vazirmatn', sans-serif;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 100%;
+            word-break: break-all;
+            line-height: 1.25;
+            color: #e2e8f0;
+        }
+
+        .subscription-container {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            margin-top: 1rem;
+        }
+
+        .subscription-url {
+            background: rgba(255, 255, 255, 0.07);
+            border: 1px solid var(--glass-border);
+            border-radius: 12px;
+            padding: 1rem;
+            font-family: monospace;
+            font-size: 0.875rem;
+            color: #94a3b8;
+            flex: 1;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 100%;
+            word-break: break-all;
+        }
+
+        .copy-btn {
+            background: var(--gradient);
+            border: none;
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .qr-btn {
+            background: var(--gradient);
+            border: none;
+            color: white;
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .copy-btn:hover {
+            filter: brightness(1.2);
+            transition: 0.2s ease-in-out;
+            transform: translateY(-2px);
+        }
+
+        .qr-btn:hover {
+            filter: brightness(1.2);
+            transform: translateY(-2px);
+            transition: 0.2s ease-in-out;
+        }
+
+        .modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(15, 23, 42, 0.95);
+            z-index: 9999;
+            backdrop-filter: blur(12px);
+        }
+
+        .modal.show {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .modal-content {
+            position: relative;
+            background: rgba(30, 41, 59, 0.95);
+            padding: 3rem 2rem 2rem;
+            border-radius: 24px;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            box-shadow: 0 0 50px rgba(99, 102, 241, 0.3),
+                inset 0 0 20px rgba(255, 255, 255, 0.05);
+            width: 90%;
+            max-width: 400px;
+            animation: modalFadeIn 0.3s ease-out;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .close-modal {
+            position: absolute;
+            top: -15px;
+            right: -15px;
+            cursor: pointer;
+            color: #fff;
+            opacity: 0.7;
+            transition: all 0.2s;
+            background: rgba(30, 41, 59, 0.95);
+            width: 32px;
+            height: 32px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+        }
+
+        .close-modal:hover {
+            opacity: 1;
+            background: rgba(255, 255, 255, 0.2);
+            transform: rotate(90deg);
+        }
+
+        .link-btn {
+            font-family: 'Vazirmatn', sans-serif;
+            background: var(--gradient);
+            justify-content: center;
+            width: 100%;
+            min-width: 200px;
+            max-width: 100%;
+            border: none;
+            color: white;
+            text-align: center;
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: opacity 0.3s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            transition: 0.2s ease-in-out;
+        }
+
+        .link-btn:hover {
+            filter: brightness(1.2);
+            transform: translateY(-2px);
+            transition: 0.2s ease-in-out;
+        }
+
+        .copyall-btn {
+            background: var(--gradient2);
+            justify-content: center;
+            width: 100%;
+            border: none;
+            color: white;
+            text-align: center;
+            padding: 0.75rem 1rem;
+            border-radius: 12px;
+            cursor: pointer;
+            transition: 0.2s ease-in-out;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            display: flex;
+            align-items: center;
+        }
+
+        .copyall-btn span {
+            font-size: 0.875rem;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            max-width: 100%;
+            word-break: break-all;
+            line-height: 1.25;
+            color: #e2e8f0;
+        }
+
+        .copyall-btn:hover {
+            filter: brightness(1.2);
+            transform: translateY(-2px);
+            transition: 0.2s ease-in-out;
+        }
+
+        .btn-container {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            gap: 0.75rem;
+            flex-wrap: wrap;
+            margin-top: 1rem;
+            padding: 0 0.5rem;
+        }
+
+        .preferred::before {
+            content: '⭐ ';
+        }
+
+        @media (max-width: 768px) {
+            .container {
+                padding: 1rem;
+            }
+
+            .header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .subscription-container button {
+                width: 100%;
+                justify-content: center;
+            }
+
+            .subscription-container {
+                flex-direction: column;
+                gap: 0.75rem;
+                width: 100%;
+            }
+
+            .subscription-url {
+                width: 100%;
+                padding: 0.875rem;
+                font-size: 0.8rem;
+                min-width: 0;
+            }
+
+            .btn-container {
+                flex-direction: column;
+                align-items: stretch;
+                grid-template-columns: 1fr;
+                padding: 0;
+            }
+
+            .link-btn {
+                max-width: 100%;
+                min-width: unset;
+            }
+        }
+
+        @keyframes fadeUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        #qrcode {
+            padding: 2rem;
+            background: rgba(15, 23, 42, 0.5);
+            border-radius: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0 auto;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3);
+            width: 100%;
+            max-width: 320px;
+        }
+
+        #qrcode img {
+            width: 100% !important;
+            height: auto !important;
+            max-width: 240;
+            border-radius: 12px;
+            display: block;
+            margin: 0 auto;
+            filter: drop-shadow(0 0 10px rgba(99, 102, 241, 0.3));
+        }
+
+        #applicationsContent {
+            max-height: 0px; /* Initial state - fully expanded */
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
+        }
+
+        #serverContent {
+            max-height: 0px;
+            transition: max-height 0.3s ease-out;
+            overflow: hidden;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="background">
+        <div class="circle circle-1"></div>
+        <div class="circle circle-2"></div>
+    </div>
+    <div class="container">
+        <div class="glass-card">
+            <div class="header">
+                <div class="user-info">
+                    <div>
+                        {% if user.status == 'active' %}
+                        <span class="status"
+                            style="border: 1px solid rgba(34, 197, 94, 0.4);background: rgba(34, 197, 94, 0.2);color: #4ade80;">
+                            فعال
+                        </span>
+                        {% endif %}
+                        {% if user.status == 'limited' %}
+                        <span class="status"
+                            style="border: 1px solid rgba(234, 88, 12, 0.4);background: rgba(234, 88, 12, 0.2);color: #fb923c;">
+                            پایان ترافیک
+                        </span>
+                        {% endif %}
+                        {% if user.status == 'expired' %}
+                        <span class="status"
+                            style="border: 1px solid rgba(234, 179, 8, 0.4);background: rgba(234, 179, 8, 0.2);color: #facc15;">
+                            منقضی
+                        </span>
+                        {% endif %}
+                        {% if user.status == 'disabled' %}
+                        <span class="status"
+                            style="border: 1px solid rgba(239, 68, 68, 0.4);background: rgba(239, 68, 68, 0.2);color: #f87171;">
+                            مسدود شده
+                        </span>
+                        {% endif %}
+                    </div>
+                    <div>
+                        <h1 class="latin-text username-text" style="user-select: text;">{{ user.username }}</h1>
+                    </div>
+                </div>
+            </div>
+            <div class="stats-grid">
+                <div class="stat-card data-usage-card" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; width: 100%; justify-content: flex-start;">
+                        <div class="stat-icon">
+                            <i class="fas fa-database"></i>
+                        </div>
+                        <h3>ترافیک مصرفی</h3>
+                    </div>
+                    <div style="display: flex; justify-content: space-between; align-items: center; width: 100%;">
+                        <div class="data-usage-info">
+                            {% if user.status == 'limited' %}
+                            <div class="stat-value data-usage-text">پایان ترافیک!</div>
+                            <div class="stat-value-lite data-usage-text">مصرف: {{ user.data_limit | bytesformat }}</div>
+                            {% else %}
+                            <div class="stat-value data-usage-text">{{ user.used_traffic | bytesformat }}</div>
+                            {% set remaining_traffic = user.data_limit - user.used_traffic %}
+                            {% if remaining_traffic > 0 %}
+                            <div class="stat-value-lite data-usage-text">{{ remaining_traffic | bytesformat }} مانده</div>
+                            {% endif %}
+                            <div class="stat-value-lite data-usage-text">حجم کل: {{ user.data_limit | bytesformat }}</div>
+                            {% endif %}
+                        </div>
+                        {% if user.data_limit %}
+                        <div class="circle-progress-container" style="margin: 0;">
+                            {% set percent = (user.used_traffic / user.data_limit) * 100 %}
+                            {% if percent > 100 %}
+                            {% set percent = 100 %}
+                            {%endif%}
+                            <svg class="circle-progress" viewBox="0 0 36 36">
+                                <defs>
+                                    <linearGradient id="gradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                                        {% if user.status == 'limited' %}
+                                        <stop offset="0%" style="stop-color:#ff3f3f" />
+                                        <stop offset="100%" style="stop-color:#ff8080" />
+                                        {% else %}
+                                        <stop offset="0%" style="stop-color:#6366f1" />
+                                        <stop offset="100%" style="stop-color:#8b5cf6" />
+                                        {% endif %}
+                                    </linearGradient>
+                                </defs>
+                                <circle class="background" cx="18" cy="18" r="16" />
+                                <circle class="progress" cx="18" cy="18" r="16" stroke-dasharray="100.53"
+                                    stroke-dashoffset="{{ 100.5 - percent }}" />
+                            </svg>
+                            <div class="percentage">{{ percent | int }}%</div>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                <div class="stat-card" style="display: flex; flex-direction: column; gap: 1.5rem;">
+                    <div style="display: flex; align-items: center; gap: 0.75rem; width: 100%; justify-content: flex-start;">
+                        <div class="stat-icon">
+                            <i class="fas fa-clock"></i>
+                        </div>
+                        <h3>زمان باقی‌مانده</h3>
+                    </div>
+                    {% if user.status == 'expired' %}
+                    <div class="stat-value data-usage-text">زمان اشتراک به اتمام رسید!</div>
+                    {% else %}
+                    <div style="display: flex; flex-direction: column; gap: 0.5rem;">
+                        <div class="stat-value" id="expirationValue"></div>
+                        {% if user.expire %}
+                        {% if user.status != 'expired' %}
+                        <div class="stat-value-lite" id="expireDate"></div>
+                        {% endif %}
+                        {% endif %}
+                    </div>
+                    {% endif %}
+                </div>
+            </div>
+            <br>
+            <h3>لینک اشتراک</h3>
+            <div class="subscription-container">
+                <div class="subscription-url" style="direction: ltr; text-align: center;">{{ user.subscription_url }}</div>
+                <button class="copy-btn" onclick="navigator.clipboard.writeText('{{ user.subscription_url }}')">
+                    <i class="fas fa-copy"></i> کپی
+                </button>
+                <button class="qr-btn" onclick="showQRCode('{{ user.subscription_url }}')">
+                    <i class="fas fa-qrcode"></i> بارکد
+                </button>
+            </div>
+            <hr style="border: none; border-top: 1px solid var(--glass-border); margin: 1.5rem 0;">
+            <button class="link-btn" id="supportButton" style="background: var(--gradient3);">
+                <i class="fas fa-external-link-alt"></i> ارتباط با پشتیبانی
+            </button>
+        </div>
+        <div class="glass-card" id="ApplicationsCard">
+            <div class="icon-title" style="cursor: pointer;" onclick="toggleApplications()">
+                <div class="stat-icon" style="margin-bottom: 0;">
+                    <i class="fa fa-box-open"></i>
+                </div>
+                <h3>اپلیکیشن‌های مورد نیاز</h3>
+                <i class="fas fa-chevron-down" style="margin-right: auto; transition: transform 0.3s;"></i>
+            </div>
+            <div id="applicationsContent" style="transition: max-height 0.3s ease-out; overflow: hidden;">
+                <br>
+            <div class="stat-card ">
+                <div class="icon-title">
+                    <div class="stat-icon" style="margin-bottom: 0;">
+                        <i class="fa-brands fa-android"></i>
+                    </div>
+                    <h3>اندروید</h3>
+                </div>
+                <div class="btn-container">
+                    <button onclick="window.open('https://play.google.com/store/apps/details?id=com.v2ray.ang')"
+                        class="link-btn preferred">
+                        <i class="fa-brands fa-google-play"></i> v2rayNG (گوگل پلی)
+                    </button>
+                    <button
+                        onclick="window.open('https://github.com/2dust/v2rayNG/releases/download/1.9.33/v2rayNG_1.9.33_universal.apk')"
+                        class="link-btn">
+                        <i class="fa-brands fa-github"></i> v2rayNG (گیت‌هاب)
+                    </button>
+                </div>
+                <hr style="border: none; border-top: 1px solid var(--glass-border); margin: 1.5rem 0;">
+                <div class="btn-container">
+                    <button
+                        onclick="window.open('v2rayng://install-config?url={{ user.subscription_url }}#{{ user.username }}')"
+                        class="link-btn" style="background: var(--gradient2);">
+                        <i class="fa-solid fa-plus"></i> اضافه کردن به v2rayNG
+                    </button>
+                </div>
+            </div>
+            <br>
+            <div class="stat-card">
+                <div class="icon-title">
+                    <div class="stat-icon">
+                        <i class="fa-brands fa-apple"></i>
+                    </div>
+                    <h3>آیفون (iOS)</h3>
+                </div>
+                <div class="btn-container">
+                    <button onclick="window.open('https://apps.apple.com/us/app/streisand/id6450534064')"
+                        class="link-btn preferred">
+                        <i class="fa-brands fa-app-store-ios"></i> Streisand
+                    </button>
+                    <button onclick="window.open('https://apps.apple.com/us/app/shadowrocket/id932747118')"
+                        class="link-btn">
+                        <i class="fa-brands fa-app-store-ios"></i> Shadowrocket ($3)
+                    </button>
+                </div>
+                <hr style="border: none; border-top: 1px solid var(--glass-border); margin: 1.5rem 0;">
+                <div class="btn-container">
+                    <button onclick="window.open('streisand://import/{{ user.subscription_url }}#{{ user.username }}')"
+                        class="link-btn" style="background: var(--gradient2);">
+                        <i class="fa-solid fa-plus"></i> اضافه کردن به Streisand
+                    </button>
+                </div>
+            </div>
+            <br>
+            <div class="stat-card">
+                <div class="icon-title">
+                    <div class="stat-icon">
+                        <i class="fa-brands fa-windows"></i>
+                    </div>
+                    <h3>ویندوز (۱۰ و ۱۱)</h3>
+                </div>
+                <div class="btn-container">
+                    <button
+                        onclick="window.open('https://github.com/2dust/v2rayN/releases/download/7.10.4/v2rayN-windows-64-SelfContained.zip')"
+                        class="link-btn preferred">
+                        <i class="fa-brands fa-github"></i> v2rayN (گیت‌هاب)
+                    </button>
+                    <button
+                        onclick="window.open('https://github.com/MatsuriDayo/nekoray/releases/download/4.0.1/nekoray-4.0.1-2024-12-12-windows64.zip')"
+                        class="link-btn">
+                        <i class="fa-brands fa-github"></i> Nekoray (گیت‌هاب)
+                    </button>
+                </div>
+            </div>
+        </div>
+        </div>
+        <div class="glass-card servers-section">
+            <div class="icon-title" style="cursor: pointer;" onclick="toggleServers()">
+                <div class="stat-icon">
+                    <i class="fas fa-link"></i>
+                </div>
+                <h3>لیست سرور‌ها</h3>
+                <i class="fas fa-chevron-down" style="margin-right: auto; transition: transform 0.3s;"></i>
+            </div>
+            <div id="serverContent">
+                <div id="proxyList" class="proxy-list"></div>
+            </div>
+        </div>
+
+    </div>
+    <div id="qrModal" class="modal">
+        <div class="modal-content">
+            <i class="fas fa-times close-modal" onclick="hideQRCode()"></i>
+            <div id="qrcode"></div>
+        </div>
+    </div>
+
+    <script>
+        document.querySelectorAll(".data-usage-text").forEach(el => {
+            el.innerHTML = el.innerHTML
+                .replace(/\bB\b/g, "بایت")
+                .replace(/\bKB\b/g, "کیلوبایت")
+                .replace(/\bMB\b/g, "مگابایت")
+                .replace(/\bGB\b/g, "گیگابایت")
+                .replace(/\bTB\b/g, "ترابایت")
+                .replace(/\bPB\b/g, "پتابایت");
+        });
+        
+        function toggleServers() {
+            const content = document.getElementById('serverContent');
+            const arrow = document.querySelector('.glass-card:last-child .fa-chevron-down');
+            
+            if (content.style.maxHeight !== '0px') {
+                content.style.maxHeight = '0px';
+                arrow.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = '1000px';
+                arrow.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        function toggleApplications() {
+            const content = document.getElementById('applicationsContent');
+            const arrow = document.querySelector('.icon-title .fa-chevron-down');
+            
+            if (content.style.maxHeight !== '0px') {
+                content.style.maxHeight = '0px';
+                arrow.style.transform = 'rotate(0deg)';
+            } else {
+                content.style.maxHeight = '1000px';
+                arrow.style.transform = 'rotate(180deg)';
+            }
+        }
+
+        function copyAllLinks() {
+            const links = {{ user.links | tojson }};
+            const validLinks = links.filter(link => link !== 'False').join('\n');
+            navigator.clipboard.writeText(validLinks);
+        }
+
+        function showQRCode(text) {
+            const modal = document.getElementById('qrModal');
+            const qrcodeDiv = document.getElementById('qrcode');
+            qrcodeDiv.innerHTML = ''; 
+
+            new QRCode(qrcodeDiv, {
+                text: text,
+                width: 280,
+                height: 280,
+                colorDark: "#FFFFFF",
+                colorLight: "#00000000",
+                correctLevel: QRCode.CorrectLevel.H
+            });
+
+            modal.classList.add('show');
+        }
+
+        function hideQRCode() {
+            const modal = document.getElementById('qrModal');
+            modal.classList.remove('show');
+        }
+
+        window.onclick = function (event) {
+            const modal = document.getElementById('qrModal');
+            if (event.target.classList.contains('modal')) {
+                hideQRCode();
+            }
+        }
+
+        function getTimeLeft(expireTimestamp) {
+            if (!expireTimestamp) return 'نامحدود';
+
+            const now = Math.floor(Date.now() / 1000);
+            const timeLeft = expireTimestamp - now;
+
+            if (timeLeft <= 0) return 'زمان اشتراک به پایان رسیده!';
+
+            const days = Math.floor(timeLeft / 86400);
+            const hours = Math.floor((timeLeft % 86400) / 3600);
+            const minutes = Math.floor((timeLeft % 3600) / 60);
+
+            let result = '';
+            if (days > 0) {
+                result += `${days} روز`;
+                if (hours > 0) {
+                    result += ` و ${hours} ساعت`;
+                }
+            }
+            else {
+                if (hours > 0) {
+                    result += `${hours} ساعت`;
+                    if (minutes > 0) {
+                        result += ` و ${minutes} دقیقه`;
+                    }
+                }
+                else {
+                    if (minutes > 0) {
+                        result += `${minutes} دقیقه`;
+                    }
+                    else {
+                        result += `کمتر از ۱ دقیقه!`;
+                    }
+                }
+            }
+
+
+            return result;
+        }
+
+        function formatDateTime(timestamp) {
+            if (!timestamp) return 'نامحدود';
+            const date = new Date(timestamp * 1000);
+            return date.toLocaleDateString() + ' ' + date.toLocaleTimeString();
+        }
+
+        function decodeVmessName(vmessLink) {
+            try {
+                const base64Data = vmessLink.replace('vmess://', '');
+                const decodedData = atob(base64Data);
+                const config = JSON.parse(decodedData);
+                return config.ps || 'Unknown';
+            } catch (e) {
+                return 'Unknown';
+            }
+        }
+
+        function getProxyName(link) {
+            if (link === 'False') return null;
+
+            if (link.startsWith('vmess://')) {
+                return decodeVmessName(link);
+            }
+
+            const hashIndex = link.indexOf('#');
+            if (hashIndex !== -1) {
+                return decodeURIComponent(link.substring(hashIndex + 1));
+            }
+
+            return 'Unknown';
+        }
+
+        function displayProxies() {
+            const proxyList = document.getElementById('proxyList');
+            const links = {{ user.links | tojson }};
+
+            // Add Copy All button
+            const copyAllButton = document.createElement('div');
+            copyAllButton.className = 'copyall-btn';
+            copyAllButton.style.cursor = 'pointer';
+            copyAllButton.innerHTML = `
+            <i class="fas fa-copy"></i>
+            <span>کپی تمام سرورها</span>
+            `;
+            copyAllButton.addEventListener('click', function () {
+                copyAllLinks();
+                const originalContent = this.innerHTML;
+                this.innerHTML = `
+                <i class="fas fa-check"></i>
+                <span>کپی شدند!</span>
+            `;
+            setTimeout(() => {
+                this.innerHTML = originalContent;
+            }, 2000);
+        });
+        proxyList.appendChild(copyAllButton);
+        const hr = document.createElement('hr');
+        hr.style = 'border: none; border-top: 1px solid var(--glass-border); margin: 0.5rem 0;';
+        proxyList.appendChild(hr);
+        links.forEach(link => {
+            const name = getProxyName(link);
+            if (name) {
+                const proxyItem = document.createElement('div');
+                proxyItem.className = 'proxy-item';
+                proxyItem.style.cursor = 'pointer';
+                proxyItem.innerHTML = `
+                    <span>${name}</span>
+                `;
+                proxyItem.addEventListener('click', function () {
+                    navigator.clipboard.writeText(link);
+                    const originalContent = this.innerHTML;
+                    this.innerHTML = `
+                        <i class="fas fa-check"></i>
+                        <span>کپی شد!</span>
+                    `;
+                    setTimeout(() => {
+                        this.innerHTML = originalContent;
+                    }, 2000);
+                });
+                proxyList.appendChild(proxyItem);
+            }
+        });
+        }
+
+        // Initialize everything when DOM is loaded
+        document.addEventListener('DOMContentLoaded', function () {
+            displayProxies();
+
+            if (!SupportID) {
+                const supportButton = document.getElementById('supportButton');
+                const hr = supportButton.previousElementSibling;
+                if (supportButton) supportButton.style.display = 'none';
+                if (hr && hr.tagName === 'HR') hr.style.display = 'none';
+            } else {
+                document.getElementById('supportButton').addEventListener('click', function() {
+                    window.open(SupportID);
+                });
+            }
+
+            // Copy button logic
+            document.querySelectorAll('.copy-btn').forEach(button => {
+                button.addEventListener('click', function () {
+                    this.innerHTML = '<i class="fas fa-check"></i> کپی شد!';
+                    setTimeout(() => {
+                        this.innerHTML = '<i class="fas fa-copy"></i> کپی';
+                    }, 2000);
+                });
+            });
+
+            // Set expiration time and format date
+            {% if user.expire %}
+            document.getElementById('expirationValue').textContent = getTimeLeft({{ user.expire }});
+            document.getElementById('expireDate').textContent = 'تاریخ انقضا: ' + formatDateTime({{ user.expire }});
+            {% else %}
+            document.getElementById('expirationValue').textContent = 'نامحدود';
+            {% endif %}
+        });
+
+    if ("{{ user.status.name }}" !== "active") {
+        document.querySelectorAll(".servers-section").forEach(el => {
+            el.style.display = "none"; // Hide the elements
+        });
+    }
+
+
+    </script>
+</body>
+</html>
