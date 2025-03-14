@@ -12,7 +12,7 @@ A modern, lightweight, and powerful subscription page template for [Marzban](htt
 
 ## Introduction
 
-A simple yet effective HTML template to enhance the user experience of Marzban panels.
+A simple yet effective subscription template (written in plain `HTML` and `CSS`) to enhance the user experience of Marzban's subscription page.
 
 ## Features
 
