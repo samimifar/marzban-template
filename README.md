@@ -21,8 +21,8 @@ A simple yet effective subscription template (written in plain `HTML` and `CSS`)
 
 ## Installation
 
-1. Download the template file:
-   <br>
+1. Download the template file
+   <br><br>
    **English:**
    ```sh
    sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/samimifar/marzban-template/master/src/en/index.html
@@ -33,7 +33,7 @@ A simple yet effective subscription template (written in plain `HTML` and `CSS`)
    sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/samimifar/marzban-template/master/src/fa/index.html
    ```
    
-3. Configure Marzban to use the custom template by running:
+3. Configure Marzban to use the custom template by running
    ```sh
    echo 'CUSTOM_TEMPLATES_DIRECTORY="/var/lib/marzban/templates/"' | sudo tee -a /opt/marzban/.env
    echo 'SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"' | sudo tee -a /opt/marzban/.env
@@ -43,9 +43,16 @@ A simple yet effective subscription template (written in plain `HTML` and `CSS`)
    CUSTOM_TEMPLATES_DIRECTORY="/var/lib/marzban/templates/"
    SUBSCRIPTION_PAGE_TEMPLATE="subscription/index.html"
    ```
-4. Restart Marzban:
+4. Restart Marzban
    ```sh
    marzban restart
+   ```
+
+## Add support Link and Button
+
+to add your support link as button edit the file and add your support link in line `5`
+ ```js
+   const SupportID = "PUT YOUR LINK HERE"; // Fill with your support link or keep it blank to hide Support section 
    ```
 
 ## Update
