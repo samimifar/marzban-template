@@ -16,7 +16,7 @@ A simple yet effective subscription template (written in plain `HTML` and `CSS`)
 
 ## Features
 
-- Quick subscription link integration for **v2rayNG, Streisand, NekoBox, and sing-box**.
+- Quick subscription link integration for **v2rayNG, Streisand**.
 - Direct download links for required applications.
 - Clean and minimal design optimized for performance.
 
