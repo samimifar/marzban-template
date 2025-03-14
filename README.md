@@ -16,16 +16,24 @@ A simple yet effective subscription template (written in plain `HTML` and `CSS`)
 
 ## Features
 
-- Quick subscription link integration for **v2rayNG, Streisand**.
+- Quickly add subscriptions to **v2rayNG, Streisand**.
 - Direct download links for required applications.
 - Clean and minimal design optimized for performance.
+- Supports `English` and `Farsi/Persian` languages.
 
 ## Installation
 
 1. Download the template file:
+   **English:**
    ```sh
-   sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/oXIIIo/marzban-template/master/subscription/index.html
+   sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/samimifar/marzban-template/master/src/en/index.html
    ```
+   
+   **فارسی:**
+   ```sh
+   sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/samimifar/marzban-template/master/src/fa/index.html
+   ```
+   
 2. Configure Marzban to use the custom template by running:
    ```sh
    echo 'CUSTOM_TEMPLATES_DIRECTORY="/var/lib/marzban/templates/"' | sudo tee -a /opt/marzban/.env
@@ -59,4 +67,3 @@ If you like this project and want to support its development, you can donate usi
 - **TON:** `UQAtCP3gnHhb5QRy-3fnAqwXBg_AV4vT1jH5MtaCYNTOv7v4`
 - **TRX:** `TDKJrRtZirFf95RZ9VUo5ERkmz3x8MXbUN`
 - **USDT (BEP20):** `0x49bA8498e5d619f1bA208fB57B8b860C98700652`
-
