@@ -4,7 +4,7 @@ A modern, lightweight, and powerful subscription page template for [Marzban](htt
 
 <p align="center">
   <a href="https://github.com/samimifar/marzban-templates" target="_blank" rel="noopener noreferrer" >
-    <img src="https://github.com/samimifar/marzban-template/blob/main/img/marzban-termplate.png" alt="SubPage screenshots" width="800" height="auto">
+    <img src="https://github.com/samimifar/marzban-template/blob/main/img/marzban-template.png" alt="SubPage screenshots" width="800" height="auto">
   </a>
 </p>
 
