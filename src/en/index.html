@@ -438,6 +438,17 @@
             content: '⭐ ';
         }
 
+        .username-text
+        {
+            direction: ltr;
+            user-select: text;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: block;
+            max-width: 240px;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
@@ -544,7 +555,7 @@
             <div class="header">
                 <div class="user-info">
                     <div>
-                        <h1 style="user-select: text;">{{ user.username }}</h1>
+                        <h2 class="username-text" style="user-select: text;">{{ user.username }}</h2>
                     </div>
                     <div>
                         {% if user.status == 'active' %}
