@@ -447,6 +447,17 @@
             content: '⭐ ';
         }
 
+        .username-text
+        {
+            direction: ltr;
+            user-select: text;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            display: block;
+            max-width: 240px;
+        }
+
         @media (max-width: 768px) {
             .container {
                 padding: 1rem;
@@ -579,7 +590,7 @@
                         {% endif %}
                     </div>
                     <div>
-                        <h1 class="latin-text username-text" style="user-select: text;">{{ user.username }}</h1>
+                        <h2 class="latin-text username-text" style="user-select: text;">{{ user.username }}</h2>
                     </div>
                 </div>
             </div>
