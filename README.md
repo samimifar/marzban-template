@@ -27,12 +27,13 @@ A simple yet effective subscription template (written in plain `HTML` and `CSS`)
    ```sh
    sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/samimifar/marzban-template/master/src/en/index.html
    ```
+   
   **Russian:**
    ```sh
    sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/samimifar/marzban-template/master/src/en/index.html
    ```
    
-   **فارسی:**
+   **Persian/فارسی:**
    ```sh
    sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/samimifar/marzban-template/master/src/fa/index.html
    ```
