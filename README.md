@@ -17,13 +17,17 @@ A simple yet effective subscription template (written in plain `HTML` and `CSS`)
 - Quickly add subscriptions to **v2rayNG, Streisand**.
 - Direct download links for required applications.
 - Clean and minimal design optimized for performance.
-- Supports `English` and `Farsi/Persian` languages.
+- Supports `English`, `Farsi/Persian` and `Russian` languages.
 
 ## Installation
 
 1. Download the template file
    <br><br>
    **English:**
+   ```sh
+   sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/samimifar/marzban-template/master/src/en/index.html
+   ```
+  **Russian:**
    ```sh
    sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/samimifar/marzban-template/master/src/en/index.html
    ```
