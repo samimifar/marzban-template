@@ -28,7 +28,7 @@ A simple yet effective subscription template (written in plain `HTML` and `CSS`)
    sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/samimifar/marzban-template/master/src/en/index.html
    ```
    
-  **Russian:**
+   **Russian:**
    ```sh
    sudo wget -N -P /var/lib/marzban/templates/subscription/ https://raw.githubusercontent.com/samimifar/marzban-template/master/src/en/index.html
    ```
